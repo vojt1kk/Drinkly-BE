@@ -16,6 +16,7 @@ Route::prefix('v1')->group(function () {
 
         Route::get('/water-intake', [WaterIntakeController::class, 'index']);
         Route::post('/water-intake', [WaterIntakeController::class, 'store']);
+        Route::get('/water-intake/weekly-stats', [WaterIntakeController::class, 'weeklyStats']);
     });
 });
 

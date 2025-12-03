@@ -34,9 +34,13 @@ class StoreWaterIntakeRequest extends FormRequest
     {
         $validated = $this->validated();
 
+        $intakeTime = isset($validated['intake_time'])
+            ? new \DateTimeImmutable($validated['intake_time'])
+            : new \DateTimeImmutable();
+
         return new WaterIntakeData(
             amount: $validated['amount'],
-            intakeTime: isset($validated['intake_time']) ? new \DateTimeImmutable($validated['intake_time']) : null,
+            intakeTime: $intakeTime,
         );
     }
 }

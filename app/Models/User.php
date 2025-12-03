@@ -53,4 +53,12 @@ class User extends Authenticatable
             'two_factor_confirmed_at' => 'datetime',
         ];
     }
+
+    /**
+     * Get the water intakes for the user.
+     */
+    public function waterIntakes()
+    {
+        return $this->hasMany(WaterIntake::class);
+    }
 }

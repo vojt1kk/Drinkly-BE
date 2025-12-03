@@ -6,7 +6,7 @@ final readonly class WaterIntakeData
 {
     public function __construct(
         public int $amount,
-        public ?\DateTimeInterface $intakeTime = null,
+        public \DateTimeInterface $intakeTime,
     ) {
     }
 }

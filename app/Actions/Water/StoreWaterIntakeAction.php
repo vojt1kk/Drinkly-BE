@@ -11,14 +11,10 @@ final readonly class StoreWaterIntakeAction
 {
     public function execute(User $user, WaterIntakeData $data): WaterIntake
     {
-        $intakeTime = $data->intakeTime instanceof DateTimeInterface
-            ? $data->intakeTime
-            : now();
-
         return WaterIntake::query()->create([
             'user_id' => $user->id,
             'amount' => $data->amount,
-            'intake_time' => $intakeTime,
+            'intake_time' => $data->intakeTime,
         ]);
     }
 }
