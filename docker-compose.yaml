@@ -1,0 +1,23 @@
+services:
+  database:
+    image: mariadb:11
+    container_name: drinkly-mariadb
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-drinkly}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-password}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - internal
+
+networks:
+  internal:
+
+
+volumes:
+  db-data:
+
+
