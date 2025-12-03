@@ -44,6 +44,16 @@ class RegisterRequest extends FormRequest
         return true;
     }
 
+    /**
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'email.unique' => 'Uživatel s tímto e-mailem už existuje. Přihlas se, nebo použij jiný e-mail.',
+        ];
+    }
+
     public function toInputData(): UserInputData
     {
         $validated = $this->validated();
